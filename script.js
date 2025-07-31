@@ -81,3 +81,5 @@ function game() {
         console.log("Tie! For now, you both suck equally.");
     }
 }
+
+game();
