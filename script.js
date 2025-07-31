@@ -33,6 +33,9 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
 
 function game() {
     let playerScore = 0;
@@ -53,7 +56,7 @@ function game() {
         const computerChoice = computerPlay();
         const result = playRound(playerInput.trim(), computerChoice);
 
-        console.log(result);
+        alert(result);
 
         if (result.startsWith("Invalid input")) {
             alert("Invalid choice my man! Only Rock, Paper, or Scissors are accepted.");
@@ -67,18 +70,18 @@ function game() {
         }
 
         roundsPlayed++;
-        console.log(`Your score weakling: ${playerScore}, The Best (Shitty) AI: ${computerScore}`);
+        alert(`Your score weakling: ${playerScore}, The Best (Shitty) AI: ${computerScore}`);
     }
 
-    console.log("🏁 Final Results:");
-    console.log(`You: ${playerScore} | Evil AI: ${computerScore}`);
+    alert("🏁 Final Results:");
+    alert(`You: ${playerScore} | Evil AI: ${computerScore}`);
 
     if (playerScore > computerScore) {
-        console.log("🎉 You defeated the Shitty AI!");
+        alert("🎉 You defeated the Shitty AI!");
     } else if (playerScore < computerScore) {
-        console.log("💀 The Shitty AI wins. You are even more shitty");
+        alert("💀 The Shitty AI wins. You are even more shitty");
     } else {
-        console.log("Tie! For now, you both suck equally.");
+        alert("Tie! For now, you both suck equally.");
     }
 }
 
