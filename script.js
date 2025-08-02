@@ -74,7 +74,7 @@ function game() {
     }
 
     alert("🏁 Final Results:");
-    alert(`You: ${playerScore} | Evil AI: ${computerScore}`);
+    alert(`You: ${playerScore} | Shitty AI: ${computerScore}`);
 
     if (playerScore > computerScore) {
         alert("🎉 You defeated the Shitty AI!");
