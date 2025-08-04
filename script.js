@@ -1,23 +1,36 @@
-function computerPlay() {
-
+function getComputerChoice() {
     const choices = ['Rock', 'Paper', 'Scissors'];
     const randomIndex = Math.floor(Math.random() * choices.length);
     return choices[randomIndex];
 }
 
+function getPlayerChoice(roundNumber) {
+    const validMoves = ['rock', 'paper', 'scissors'];
 
-function playRound(playerSelection, computerSelection) {
+    while (true) {
+        const input = prompt(`Round ${roundNumber}: Enter Rock, Paper, or Scissors. Press Cancel to chicken out:`);
 
-    const player = playerSelection.toLowerCase();
+        if (input === null) {
+            return null;
+        }
 
-    const computer = computerSelection.toLowerCase();
+        const move = input.trim().toLowerCase();
 
-    if (!['rock', 'paper', 'scissors'].includes(player)) {
-        return 'Invalid input! Please choose Rock, Paper, or Scissors.';
+        if (validMoves.includes(move)) {
+            return move;
+        }
+
+        alert("❌ Invalid input! Rock, Paper, or Scissors only.");
     }
+}
 
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
+function playRound(player, computer) {
     if (player === computer) {
-        return `It's a tie! You both chose ${computer}.`;
+        return `It's a tie! You both chose ${capitalize(player)}.`;
     }
 
     const win = (
@@ -26,42 +39,30 @@ function playRound(playerSelection, computerSelection) {
         (player === 'paper' && computer === 'rock')
     );
 
-    if (win) {
-        return `You Win! ${capitalize(player)} beats ${capitalize(computer)}.`;
-    } else {
-        return `You Lose! ${capitalize(computer)} beats ${capitalize(player)}.`;
-    }
-}
-
-function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    return win
+        ? `You Win! ${capitalize(player)} beats ${capitalize(computer)}.`
+        : `You Lose! ${capitalize(computer)} beats ${capitalize(player)}.`;
 }
 
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    let roundsPlayed = 0;
+    let round = 1;
 
-    alert("Never back down human. You *must* face me, the shitty AI, in 5 rounds of Rock, Paper, Scissors!");
+    alert("Welcome! Face The Mighty Bot in 5 rounds of Rock, Paper, Scissors.");
 
-    while (roundsPlayed < 5) {
-        let playerInput;
-        playerInput = prompt(`Round ${roundsPlayed + 1}: Enter Rock, Paper, or Scissors:`);
+    while (round <= 5) {
+        const playerMove = getPlayerChoice(round);
 
-        if (playerInput === null) {
-            alert("No chickening out! You must play coward. Try again.");
-            continue;
+        if (playerMove === null) {
+            alert("👋 Game cancelled. Backed out, huh? Bit of a sissy move.");
+            return;
         }
 
-        const computerChoice = computerPlay();
-        const result = playRound(playerInput.trim(), computerChoice);
+        const computerMove = getComputerChoice().toLowerCase();
+        const result = playRound(playerMove, computerMove);
 
         alert(result);
-
-        if (result.startsWith("Invalid input")) {
-            alert("Invalid choice my man! Only Rock, Paper, or Scissors are accepted.");
-            continue;
-        }
 
         if (result.startsWith("You Win")) {
             playerScore++;
@@ -69,19 +70,18 @@ function game() {
             computerScore++;
         }
 
-        roundsPlayed++;
-        alert(`Your score weakling: ${playerScore}, The Best (Shitty) AI: ${computerScore}`);
+        alert(`📊 Scoreboard → You: ${playerScore} | The Mighty Bot: ${computerScore}`);
+        round++;
     }
 
-    alert("🏁 Final Results:");
-    alert(`You: ${playerScore} | Shitty AI: ${computerScore}`);
+    alert(`🏁 Final Results - You: ${playerScore} | The Mighty Bot: ${computerScore}`);
 
     if (playerScore > computerScore) {
-        alert("🎉 You defeated the Shitty AI!");
+        alert("🎉 You defeated The Mighty Bot! Not bad, not a sissy at all.");
     } else if (playerScore < computerScore) {
-        alert("💀 The Shitty AI wins. You are even more shitty");
+        alert("💀 The Mighty Bot wins. Better luck next time.");
     } else {
-        alert("Tie! For now, you both suck equally.");
+        alert("🤝 It's a tie! You and The Mighty Bot fought equally... like true champs.");
     }
 }
 
