@@ -1,13 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Rock Paper Scissors Console Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gradient-to-br from-purple-50 to-pink-100 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8">
+        <!-- Game Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">✂️ Rock Paper Scissors</h1>
+            <p class="text-gray-600">Challenge the AI in a best-of-5 match!</p>
+        </div>
 
-<body>
+        <!-- Score Display -->
+        <div class="flex justify-center mb-8">
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl p-6 shadow-lg">
+                <div class="text-center">
+                    <div class="text-2xl font-bold mb-2">Score</div>
+                    <div class="flex gap-8 text-center">
+                        <div>
+                            <div class="text-lg font-semibold">You</div>
+                            <div id="playerScore" class="text-3xl font-bold">0</div>
+                        </div>
+                        <div class="text-2xl font-bold">vs</div>
+                        <div>
+                            <div class="text-lg font-semibold">AI</div>
+                            <div id="computerScore" class="text-3xl font-bold">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Status -->
+        <div id="gameStatus" class="mb-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+            <div id="statusText" class="text-blue-800 font-medium text-center">Choose your weapon to start the battle!</div>
+            <div id="roundInfo" class="text-sm text-blue-600 text-center mt-1">Round: <span id="currentRound">0</span>/5</div>
+        </div>
+
+        <!-- Choice Buttons -->
+        <div id="choiceButtons" class="grid grid-cols-3 gap-4 mb-6">
+            <button 
+                id="rockBtn" 
+                class="choice-btn p-6 bg-gradient-to-br from-gray-400 to-gray-600 text-white font-bold rounded-xl hover:from-gray-500 hover:to-gray-700 focus:ring-4 focus:ring-gray-300 transition-all transform hover:scale-105"
+                data-choice="rock"
+            >
+                <div class="text-4xl mb-2">🪨</div>
+                <div>Rock</div>
+            </button>
+            <button 
+                id="paperBtn" 
+                class="choice-btn p-6 bg-gradient-to-br from-blue-400 to-blue-600 text-white font-bold rounded-xl hover:from-blue-500 hover:to-blue-700 focus:ring-4 focus:ring-blue-300 transition-all transform hover:scale-105"
+                data-choice="paper"
+            >
+                <div class="text-4xl mb-2">📄</div>
+                <div>Paper</div>
+            </button>
+            <button 
+                id="scissorsBtn" 
+                class="choice-btn p-6 bg-gradient-to-br from-red-400 to-red-600 text-white font-bold rounded-xl hover:from-red-500 hover:to-red-700 focus:ring-4 focus:ring-red-300 transition-all transform hover:scale-105"
+                data-choice="scissors"
+            >
+                <div class="text-4xl mb-2">✂️</div>
+                <div>Scissors</div>
+            </button>
+        </div>
+
+        <!-- Round Results -->
+        <div id="roundResults" class="mb-6 hidden">
+            <div class="bg-gray-50 rounded-lg p-4">
+                <div class="flex justify-between items-center">
+                    <div class="text-center">
+                        <div class="text-sm text-gray-600">Your Choice</div>
+                        <div id="playerChoice" class="text-2xl font-bold">-</div>
+                    </div>
+                    <div class="text-2xl font-bold text-gray-400">vs</div>
+                    <div class="text-center">
+                        <div class="text-sm text-gray-600">AI Choice</div>
+                        <div id="computerChoice" class="text-2xl font-bold">-</div>
+                    </div>
+                </div>
+                <div id="roundResult" class="text-center mt-3 text-lg font-semibold">-</div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex gap-4">
+            <button 
+                id="startGame" 
+                class="flex-1 px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all"
+            >
+                Start New Game
+            </button>
+            <button 
+                id="quitGame" 
+                class="px-6 py-3 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all"
+            >
+                Quit Game
+            </button>
+        </div>
+
+        <!-- Game History -->
+        <div id="gameHistory" class="mt-6 hidden">
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">Round History</h3>
+            <div id="historyList" class="space-y-2 max-h-40 overflow-y-auto"></div>
+        </div>
+
+        <!-- Final Results -->
+        <div id="finalResults" class="mt-6 p-6 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl hidden">
+            <div class="text-center">
+                <div id="finalMessage" class="text-2xl font-bold mb-2"></div>
+                <div id="finalScore" class="text-lg"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
-
 </html>
