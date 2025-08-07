@@ -1,57 +1,79 @@
-# JavaScript Assignment - Rock, Paper, Scissors Game
+# ✊ Rock, Paper, Scissors – Battle The Mighty Bot
 
-This repository contains a complete Rock, Paper, Scissors game implementation as part of a JavaScript assignment.
+A light-hearted and dramatic version of Rock, Paper, Scissors in vanilla JavaScript.  
+Face off against **The Mighty Bot** in a 5-round showdown of reflexes, luck, and finger-flexing.
 
-## 🎮 Game Description
+---
 
-An interactive Rock, Paper, Scissors game where you play against the computer. The game features:
-- 5 rounds of gameplay
-- Score tracking
-- Input validation
-- Fun "evil AI" theme
-- Clear win/loss/tie detection
+## 🎮 How to Play
 
-## 🚀 How to Play
+- You'll battle **The Mighty Bot** for **5 rounds**.
+- In each round:
+  - Enter your move: `Rock`, `Paper`, or `Scissors`.
+  - The bot responds instantly with its secret choice.
+  - Results are revealed: Win, Lose, or Tie.
+- Canceling the game is allowed (but you'll get teased for it).
+- Scores are tracked round by round.
+- Final winner is announced gracefully.
 
-1. Clone this repository
-2. Open `index.html` in a web browser
-3. The game will start automatically with popup prompts
-4. Enter "Rock", "Paper", or "Scissors" (case-insensitive)
-5. Play 5 rounds and see who wins!
+---
 
-## 📁 File Structure
+## 📁 How to Run
 
-- `index.html` - Main HTML file
-- `script.js` - JavaScript file containing the game logic
-- `README.md` - This documentation file
+1. Make sure you have `index.html` and `game.js` in the same folder.
+2. Your `index.html` should look like this:
 
-## 🎯 Game Features
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+  <script src="game.js"></script>
+</body>
+</html>
+```
 
-- **Computer AI**: Randomly selects Rock, Paper, or Scissors
-- **Input Validation**: Handles invalid inputs gracefully
-- **Score Tracking**: Keeps track of player vs computer score
-- **Case Insensitive**: Accepts input in any case (rock, ROCK, Rock, etc.)
-- **5-Round Game**: Plays exactly 5 rounds as specified
-- **Clear Results**: Shows results for each round and final winner
+3. Open `index.html` in your browser.
+4. The game runs entirely through alert boxes and prompt inputs.
 
-## 🛠️ Technical Implementation
+---
 
-- `computerPlay()` - Generates random computer choice
-- `playRound()` - Handles single round logic and winner determination
-- `capitalize()` - Utility function for proper text formatting
-- `game()` - Main game loop with score tracking
+## ✅ Features
 
-## 🏆 Game Rules
+- 🎲 Random bot moves  
+- 🤖 Wholesome taunts from The Mighty Bot  
+- 🧠 Case-insensitive input and validation  
+- 🛑 Cancel handling with playful messages  
+- 📊 Score tracking after every round  
+- 🏆 Final result with a mini victory/failure ceremony  
 
-- Rock beats Scissors
-- Scissors beats Paper  
-- Paper beats Rock
-- Ties occur when both players choose the same option
+---
 
-## 📊 Expected Output
+## 🛠️ Tech Used
 
-The game will show:
-- Round-by-round results
-- Current score after each round
-- Final score and winner declaration
-- Fun themed messages throughout gameplay
+- **HTML5** – for the base page  
+- **JavaScript** – for all game logic and interactivity  
+
+---
+
+## 💬 Sample In-Game Moment
+
+```
+Round 3: Enter Rock, Paper, or Scissors:
+You Win! Paper beats Rock.
+Your score: 2 | The Mighty Bot: 1
+```
+
+---
+
+## 📄 Files
+
+- `index.html` – basic launcher  
+- `game.js` – contains all gameplay logic  
+
+---
+
+Now go forth and challenge The Mighty Bot. It might be silly, but it plays to win. 🦾
